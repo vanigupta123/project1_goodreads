@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head><title>Book</title></head>
+    <body>
+        <h1>Book Details</h1>
+        <ul>
+            <li>Title: {{title}}</li>
+            <li>Author: {{author}}</li>
+            <li>Publication Year: {{year}}</li>
+            <li>ISBN: {{isbn}}</li>
+        </ul>
+        <h2>Book Reviews:</h2>
+        <ul>
+            <li>Goodreads Review count: {{ratings_count}}</li>
+            <li>Goodreads Average Rating: {{rating}}</li>
+        </ul>
+        <form action="{{isbn}}.html" method="post">
+            <input type="text" name="rating" placeholder="rating">
+            <input type="text" name="review_text" placeholder="review">
+            <button>Submit Review</button>
+        </form>
+
+        {% if error_message %}
+            <p style="color:red;">{{error_message}}</p>
+        {% endif %}
+
+        <ul>
+            {% for review in reviews %}
+            <ul>
+                <li>User: {{review[1]}}</li>
+                <li>Book Rating: {{review[2]}}</li>
+                <li>Review: {{review[3]}}</li>
+            </ul>
+            {% endfor %}
+
+
+        </ul>
+    </body>
+</html>

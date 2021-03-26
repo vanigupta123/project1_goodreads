@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head><title>Search Results</title></head>
+    <body>
+        {% if error_message %}
+            <p style="color:red;">{{error_message}}</p>
+        {% endif %}
+
+        {% if books %}
+            {% for tuple_data in books %}
+            <ul>
+                <a href="{{tuple_data[0]}}.html"><li>Title: {{tuple_data[1]}}</li></a>
+                <ul>
+                    <li>Author: {{tuple_data[2]}}</li>
+                    <li>ISBN: {{tuple_data[0]}}</li>
+                </ul>
+            </ul>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
